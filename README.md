@@ -60,7 +60,10 @@ Tibia.exe -- everything else
 
 ### Tibia.exe reading single sprite:
 Initializating sprite:
+
 ![Init sprite](images/explanation.png)
 
+
 Reading sprite:
+
 ![Read sprite](images/explanation2.png)
