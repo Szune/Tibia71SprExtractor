@@ -12,23 +12,23 @@ namespace Tibia71SpriteExtractor
         {
             const int spriteWidth = 32;
             const int spriteHeight = 32;
-			Stream file;
-			try
-			{
-				Console.Write("Trying to read Tibia.spr...");
-				file = File.OpenRead("Tibia.spr");
-			}
-			catch (Exception)
-			{
-				Console.WriteLine("\nFailed to open and read Tibia.spr");
-				return;
-			}
-			Console.WriteLine(" done.");
-			using var br = new BinaryReader(file);
+            Stream file;
+            try
+            {
+                Console.Write("Trying to read Tibia.spr...");
+                file = File.OpenRead("Tibia.spr");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("\nFailed to open and read Tibia.spr");
+                return;
+            }
+            Console.WriteLine(" done.");
+            using var br = new BinaryReader(file);
 
             try
             {
-				Console.Write("Trying to create folder 'Sprites'...");
+                Console.Write("Trying to create folder 'Sprites'...");
                 Directory.CreateDirectory("Sprites");
             }
             catch (Exception ex)
@@ -36,13 +36,13 @@ namespace Tibia71SpriteExtractor
                 Console.WriteLine($"\nFailed to create 'Sprites' folder: {ex}");
                 return;
             }
-			Console.WriteLine(" done.");
+            Console.WriteLine(" done.");
 
             var version = br.ReadUInt32();
             var spriteCount = br.ReadUInt16();
             Console.WriteLine($"Sprite version: {version}");
             Console.WriteLine($"Found {spriteCount} sprites.");
-			Console.Write("Extracting sprites...");
+            Console.Write("Extracting sprites...");
             var spritePositions = new uint[spriteCount];
             for (var i = 0; i < spriteCount; i++)
             {
@@ -88,8 +88,8 @@ namespace Tibia71SpriteExtractor
                     sprite.Save($"Sprites/{i+1}.bmp");
                 }
             }
-			Console.WriteLine(" done.");
-			Console.ReadLine();
+            Console.WriteLine(" done.");
+            Console.ReadLine();
         }
 
         static void PrintBytes(byte[] bytes)
